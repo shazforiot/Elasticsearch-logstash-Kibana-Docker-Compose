@@ -1,0 +1,27 @@
+mkdir elk
+cd elk
+mkdir logstash
+cd logstash
+vim logstash.conf
+  input {
+    file {
+     path => "/root/temp/inlog.log
+  }
+  }
+  output {
+    elasticsearch {
+      host => ["http://elasticsearch:9200"]
+  }
+  }
+cd ..
+vim elkdockercompose.yml
+  insert dockercompose file
+cd ~
+mkdir -p temp
+cd temp
+vim inlog.log
+  this is test file
+  this is test file
+cd ..
+cd elk
+docker compose up
